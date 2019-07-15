@@ -1,0 +1,25 @@
+<!-- 猜你喜欢 -->
+<article class="widget-push">
+    <div class="title-block">猜你喜欢</div>
+    <ul>
+        {% for item in pushList %}
+            <li>
+                <a href="/{{item.sid}}.html" target="_blank">
+                    <img class="lazy-img" data-original="{{item.cover_url}}" />
+                    <p class="title">{{item.title}}</p>
+                    <p class="date">{{item.issue_time.substr(0, 10)}}</p>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</article>
+
+<!-- 标签云 -->
+<article class="widget-tag">
+    <div class="title-block">标签云</div>
+    <div>
+        {% for item in tagList %}
+            <a class="tag-{{loop.index0 % 5}}" href="/search.html?t={{item.name}}">{{item.name}} ({{item.count}})</a>
+        {% endfor %}
+    </div>
+</article>

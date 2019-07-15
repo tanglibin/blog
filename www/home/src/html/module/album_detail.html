@@ -1,0 +1,12 @@
+{% extends './template.html' %}
+{% block content %}
+    <div class="container album-detail-ctx">
+        <div class="title">
+            <h2>{{data.name}}</h2>
+            <span>({{data.filming_time}})</span>
+        </div>
+        {% for item in data.photos %}
+            <img class="lazy-img" data-original="https://qiniu.tlbin.com/image/{{data.prefix | getUrl(item)}}">
+        {% endfor %}
+    </div>
+{% endblock %}

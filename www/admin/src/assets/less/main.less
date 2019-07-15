@@ -1,0 +1,114 @@
+//导入变量定义模块
+@import 'define';
+
+html, body, #app{.size(100%);font-size: @font2;color:@color6;font-family:"Microsoft YaHei"}
+html, body, ul, li, p, h2, h5, h6{margin: 0;padding: 0;font-weight: normal;}
+i[class^='icon-']{background-image: url('../img/icon.png');display: block;}
+
+//登录页面
+.login-page{
+    &{background-image: url('../img/login-bg.jpg');background-size: 100% 100%;height: 100%;display: flex}
+    .content {.size(434px, 360px);padding: 0 38px;background: rgba(255, 255, 255, 0.2);margin: auto;border: 2px solid @color15;border-radius: 10px;color: @color12;}
+    h2, .login-btn {text-align: center;}
+    h2 {font-size: @font5;line-height: 40px;margin-top: 22px;font-weight: bold;}
+    .enter-item {border-bottom: 1px solid @color12;display: flex;padding: 24px 0 0 15px;height: 36px;align-items: center;margin-bottom: 9px;}
+    i {.size(25px);margin-right: 12px;}
+    .icon-user {background-position: -149px -41px;}
+    .icon-password {background-position: -149px -75px;}
+    .login-btn {background: @color16;.size(300px, 50px);line-height: 50px;margin: 66px auto 0;font-size: @font4;cursor: pointer;}
+    input {background: transparent;outline: none;border: none;font-size: @font3;color: @color12;}
+    input::-webkit-input-placeholder {color: @color12;}
+}
+
+//头部
+.el-header{
+    &{background-color: @color1;line-height: 60px;}
+    .icon-computer-logo{background-position: -49px -6px;.size(120px, 35px);}
+    .user-skin{font-size: @font3;color: @color2;cursor: pointer;}
+    .icon-avatar{.size(42px);margin-left: 10px;}
+}
+
+//菜单
+.el-aside{
+    &{background-color: @color3;width: 250px!important;padding-top: 16px;}
+    .el-menu{background-color: @color3;border: none;}
+    .el-menu-item:focus, .el-menu-item:hover, .el-menu-item.is-active{background-color: @color1;border-left-color: @color4;}
+    .el-menu-item{color: @color2;padding-left: 26px!important;border-left: 4px solid @color3;}
+    i{.size(18px);float: left;margin: 20px 8px 18px 0;background-position-y: -42px;}
+    .icon-key{background-position-x: 2px;width: 16px;margin-left: 1px;}
+    .icon-banner{background-position-x: -12px;}
+    .icon-journal{background-position-x: -117px;}
+    .icon-tool{background-position-x: -48px;}
+    .icon-footprint{background-position-x: -65px;}
+    .icon-album{background-position-x: -84px;}
+    .icon-follow{background-position-x: -101px;}
+    .icon-log{background-position-x: -29px;}
+}
+
+//内容区域
+.container {
+    &{background-color: @color5;}
+    .tool-bar{margin-bottom: 12px;}
+    .el-breadcrumb{padding-bottom: 18px;border-bottom: 1px solid @color9;margin-bottom: 12px;}
+    .el-dialog__header{border-bottom: 1px solid @color9;}
+    .success{color: @color10;}
+    .danger{color: @color11;}.omit{overflow: hidden;text-overflow: ellipsis;white-space: nowrap;}
+    .el-form .el-input, .el-form .el-select{width: 100%;}.t-center{text-align: center;}
+    .el-pagination{background-color: @color12;padding: 12px 15px 12px 5px;text-align: right;}
+    .el-form input, .el-form textarea, .edui-editor-iframeholder{background: @color13;}
+    .form-wrap{background-color: @color12;padding: 30px 20px;border: 1px solid @color9;}
+    textarea{resize: none;font-family:"Microsoft YaHei";}.edui-default{line-height: normal}
+    .link{color: @color4;cursor: pointer;text-decoration: none;}
+    .el-table th.gutter, .el-table colgroup.gutter{display: table-cell!important;}
+    .el-table .cell{white-space: nowrap;}
+    .chapter-title-enter{position: absolute;top: 1px;left: 16px;border: none;.size(calc(100% - 90px), 38px);padding: 0;z-index: 1;outline: none;}
+    .el-date-editor--daterange.el-input__inner{width: 100%;padding-left: 13px;}
+    .contain-add{
+        .el-select{width: calc(100% - 42px);}
+        .el-input__inner{border-radius: 4px 0 0 4px;border-right: none;}
+        .add-btn{background: #fffffa;width: 40px;height: 38px;text-align: center;border: 1px solid #DCDFE6;border-radius: 0 4px 4px 0;float: right;line-height: 38px;color: #c1cfe0;font-size: 19px;cursor: pointer;}
+    }
+
+    //首页
+    .statistics{
+        &{color: @color14;.size(100%, 115px);position: relative;}
+        &.sta-1{background: @color17;}
+        &.sta-2{background: @color18;}
+        &.sta-3{background: @color19;}
+        &.sta-4{background: @color20;color: @color5;}
+        .sta-item{text-align: right;padding: 15px 20px 0 0;}
+        h5{font-size: @font6;color: @color13;}
+        h6{font-size: @font2;}
+        .view-more{font-size: @font1;position: absolute;left: 0;bottom: 0;.size(100%, 25px);box-sizing: border-box;padding: 0 8px;line-height: 25px;background: rgba(0, 0, 0, 0.1);cursor: pointer;}
+        &>i{.size(38px);float: left;background-position-y: -63px;margin: 25px 0 0 20px;}
+        .icon-journal{background-position-x: -1px;width: 30px;}
+        .icon-tool{background-position-x: -32px;}
+        .icon-album{background-position-x: -72px;}
+        .icon-footprint{background-position-x: -114px;width: 28px;}
+        .icon-more{background-position: -135px -43px;.size(14px);float: right;margin-top: 5.5px;}
+        &:hover .icon-more{animation: around 1s infinite linear;}
+    }
+    .sta-chart{
+        &{position: relative;margin-top: 20px;}
+        .el-select{position: absolute;right: 0;top: 0;.size(108px, 28px);}
+    }
+
+    // key管理页面
+    .keywrap{
+        .el-form{width: 400px;}
+        .el-button{margin-left: 100px;width: 150px;}
+    }
+
+    // 相册管理
+    .albumadd, .albumupdate{
+        .el-textarea__inner{height: 250px;}
+        .el-button{width: 120px;margin-left: 120px;}
+    } 
+
+    // 日志页面
+    .el-upload .el-button{border-radius: 0 4px 4px 0;}
+}
+
+
+
+@keyframes around{0%,50%,90%{transform:translateX(0px)}40%{transform:translateX(-5px)}70%{transform:translateX(-2px)}}

@@ -1,0 +1,60 @@
+<!Doctype html>
+<html lang=zh-CN>
+<head>
+    <script>
+        /** 检查浏览器是否支持 */
+        function checkBrowser(){
+            var userAgent = navigator.userAgent,
+                isIE = (userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1) ||  userAgent.indexOf("Edge") > -1 || (userAgent.indexOf('Trident') > -1 && userAgent.indexOf("rv:11.0") > -1);
+
+            // 检查是否支持webp格式图片
+            var checkWebp = function(){
+                try{
+                    return (document.createElement('canvas').toDataURL('image/webp').indexOf('data:image/webp') == 0);
+                }catch(err) {
+                    return  false;
+                }
+            }
+            return !isIE && checkWebp();
+        }
+        !checkBrowser() && (window.location.href = 'browser.html');
+    </script>
+        
+    <meta charset=utf-8>
+    <meta name=viewport content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name=format-detection content="telephone=no">
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <title>登录 | Tony 的小站</title>
+    <link rel=icon href=/static/favicon.ico> <meta name=application-name content="唐礼斌的博客">
+    <% for (var css in htmlWebpackPlugin.files.css) { %>
+        <link href="<%=htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
+    <% } %>
+</head>
+
+<body class="simple-body">
+    <div class="simple-ctx flex-center">
+        <div id="dot_box">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+        <div id="sprite_box">
+            <div class="sprite-1"></div>
+            <div class="sprite-2"></div>
+            <div class="sprite-3"></div>
+            <div class="sprite-4"></div>
+            <div class="sprite-5"></div>
+        </div>
+    </div>
+
+    <!-- 底部备案相关信息 -->
+    {% include "./footer.html" %}
+
+    <!-- JS文件引入 -->
+    <script src="/home/dist/static/js/vendor.js"></script>
+    <% for (var chunk in htmlWebpackPlugin.files.js) { %>
+        <script src="<%= htmlWebpackPlugin.files.js[chunk] %>"></script>
+    <% } %>
+</body>
+</html>

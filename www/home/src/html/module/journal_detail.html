@@ -1,0 +1,50 @@
+{% extends './template.html' %}
+{% block content %}
+    <div class="container journal-detail">
+        <div class="annou-box">
+            <i class="icon-annou"></i>欢迎来访 ~ 如果有侵犯您版权的文章，绝非恶意。请联系删除。
+        </div>
+            
+        <!-- 主内容 -->
+        <div class="main-box">
+            <header class="detail-title">
+                <div class="text">{{detailData.info.title}}</div>
+                <div class="flex meta">
+                    <a href="/search.html?t={{detailData.info.tag}}" class="tagskin"><i class="icon-tag"></i>{{detailData.info.tag}}</a>
+                    <span class="timeskin"><i class="icon-timer"></i>{{detailData.info.issue_time}}</span>
+                </div>
+            </header>
+            <article class="detail-content">
+                {% if detailData.info.type==1 %}
+                    {% for item in detailData.detail %}
+                        <a id="{{item.chapter_title}}"></a>
+                        <div class="chapter-item">
+                            <h2>{{item.chapter_title}}</h2>
+                            {{item.content_html | safe}}
+                        </div>
+                    {% endfor %}
+                {% else %}
+                    {{detailData.detail[0].content_html | safe}}
+                {% endif %}
+            </article>
+        </div>
+        
+        <!-- 小部件 -->
+        <div class="widget-box">
+            <!-- 网站介绍及统计、相册随览 -->
+            {% include "./widget-author-random.html" %}
+
+            <!-- 多章节时显示章节目录 -->
+            {% if detailData.info.type==1 %}
+                <article class="widget-catalog" id="catalog">
+                    <div class="title-block">章节目录</div>
+                    <ul>
+                        {% for item in detailData.detail %}
+                            <li><a href="#{{item.chapter_title}}">{{item.chapter_title}}</a></li>
+                        {% endfor %}
+                    </ul>
+                </article>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

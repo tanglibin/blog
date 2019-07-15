@@ -1,0 +1,27 @@
+{% extends './template.html' %}
+{% block content %}
+    <div class="container">
+
+        <!-- 主内容 -->
+        <div class="main-box tool-box">
+            <ul>
+                {% for tool in tools %}
+                    <li>
+                        <img class="lazy-img" data-original="https://qiniu.tlbin.com/image/tool/{{tool.photo}}.png">
+                        <p class="title">{{tool.name}}</p>
+                        <p class="type">类型：{{tool.type}}</p>
+                        <p class="version">版本：{{tool.version}}</p>
+                        <p class="size">大小：{{tool.size}}</p>
+                        <a class="right-btn" href="{{tool.file_url}}" target="_blank"><i class="icon-down"></i>下载</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <!-- 小部件 -->
+        <div class="widget-box">
+            <!-- 网站介绍及统计、相册随览 -->
+            {% include "./widget-author-random.html" %}
+        </div>
+    </div>
+{% endblock %}

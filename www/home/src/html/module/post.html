@@ -1,0 +1,48 @@
+{% extends './template.html' %}
+{% block content %}
+    <div class="container">
+        <div class="annou-box">
+            <i class="icon-annou"></i>欢迎来访 ~ 如果有侵犯您版权的文章，绝非恶意。请联系删除。
+        </div>
+
+        <!-- 主内容 -->
+        <div class="main-box">
+            {% if isError %}
+                <div class="post-box no-data">页面不存在，请检查 URL 拼写是否有误，或者通过「站内搜索」搜一下吧～</div>
+            {% elseif scrollData.data.length==0 %}
+                <div class="post-box no-data">没找到任何数据，请更换关键词再试~</div>
+            {% else %}
+                <div class="post-box" id="post_box">
+                    {% for item in scrollData.data %}
+                        <article class="excerpt">
+                            <div class="item-title">
+                                <a href='/{{item.sid}}.html'>
+                                    <span class="tag-type">{{item.tag}}</span>
+                                    <span class="title-txt">{{item.title}}</span>
+                                </a>
+                            </div>
+                            <a class="pic-block" href="/{{item.sid}}.html"><img class="lazy-img" data-original="{{item.cover_url}}" /></a>
+                            <div class="right-box">
+                                <div class="summary-text">{{item.summary}}</div>
+                                <div class="right-btn">
+                                    <i class="icon-timer"></i>
+                                    <span class="date-txt">{{item.issue_time.substr(0, 10)}}</span>
+                                </div>
+                            </div>
+                        </article>
+                    {% endfor %}
+                </div>
+            {% endif %}
+                
+            <!-- 底部loading -->
+            {% include "./loading.html" %}
+        </div>
+        <!-- 小部件 -->
+        <div class="widget-box">
+            <!-- 网站介绍及统计、相册随览 -->
+            {% include "./widget-author-random.html" %}
+            <!-- 猜你喜欢、标签云 -->
+            {% include "./widget-push-tag.html" %}
+        </div>
+    </div>
+{% endblock %}

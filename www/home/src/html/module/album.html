@@ -1,0 +1,18 @@
+{% extends './template.html' %}
+{% block content %}
+    <div class="container album-ctx">
+        <ul>
+            {% for item in albums %}
+            <li>
+                <a href="/{{item.sid}}.html" target="_blank">
+                    <img class="lazy-img" data-original="https://qiniu.tlbin.com/image/{{item.cover}}">
+                    <p class="txt-block">
+                        <span class="address">{{item.name}}</span>
+                        <span class="date">{{item.filming_time}}</span>
+                    </p>
+                </a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

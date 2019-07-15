@@ -1,0 +1,28 @@
+<!-- 网站介绍及统计 -->
+<article class="widget-author">
+    <div class="author-block">
+        <div class="avatar"><i class="icon-avatar"></i></div>
+        <p class="names">博主:  唐礼斌</p>
+        <p class="talk">一个记录生活与分享资讯的个人博客网站。『tlbin.com』</p>
+    </div>
+    <ul>
+        <li class="op-email"><a class="flex-center" target="_blank" href="http://mail.qq.com/cgi-bin/qm_share?t=qm_mailme&email=tony@tlbin.com"><i class="icon-email"></i></a></li>
+        <li class="op-qq"><a class="flex-center" target="_blank" href="https://wpa.qq.com/msgrd?v=3&uin=898926883&site=qq&menu=yes"><i class="icon-qq"></i></a></li>
+        <li class="op-wechat"><a class="flex-center"><i class="icon-wechat"></i></a><span class="wechat-code"></span></li>
+        <li class="op-telgram"><a class="flex-center" target="_blank" href="https://t.me/tony429"><i class="icon-telgram"></i></a></li>
+    </ul>
+    <div class="statistics">
+        <p class="running-days">运行天数: {{authorData.day}}天</p>
+        <p>笔记: {{authorData.count}} 篇</p>
+    </div>
+</article>
+
+<!-- 相册随览 -->
+<article class="widget-random">
+    <div class="title-block">相册随览</div>
+    <div id='random'>
+        {% for item in follow %}
+            <a href="/{{item.sid}}.html" target="_blank"><img src="https://qiniu.tlbin.com/image/{{item.photo}}" data-title="{{item.title}}"/></a>
+        {% endfor %}
+    </div>
+</article>

@@ -1,0 +1,57 @@
+<!Doctype html>
+<html lang=zh-CN>
+
+<head>
+    <meta charset=utf-8>
+    <meta name=viewport content="width=device-width,minimum-scale=1,initial-scale=1">
+    <meta name=format-detection content="telephone=no">
+    <meta http-equiv=X-UA-Compatible content="IE=edge">
+    <title>{{page_op.title}} | Tony 的小站</title>
+    <link rel=icon href=/static/favicon.ico> <meta name=application-name content="唐礼斌的博客">
+    <!-- 样式引入 -->
+    <% for (var css in htmlWebpackPlugin.files.css) { %>
+        <link href="<%=htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
+    <% } %>
+    {% block links %}{% endblock %}
+</head>
+
+<body>
+    <header class="header">
+        <div class="title">
+            <a href="/">
+                <span class="t-1">静觅</span>
+                <span class="t-2">唐礼斌的个人博客</span>
+            </a>
+        </div>
+        <div class=nav-header>
+            <div class="inner-box flex-between">
+                <ul class=flex>
+                    <li><a href="/" class="{% if page_op.idx == 0 %}on{% endif %}">首页</a></li>
+                    <li><a href="/journal.html" class="{% if page_op.idx == 1 %}on{% endif %}">学习笔记</a></li>
+                    <li><a href="/tool.html" class="{% if page_op.idx == 2 %}on{% endif %}">工具下载</a></li>
+                    <li><a href="/footprint.html" class="{% if page_op.idx == 3 %}on{% endif %}">我的足迹</a></li>
+                    <li><a href="/album.html" class="{% if page_op.idx == 4 %}on{% endif %}">我的相册</a></li>
+                </ul>
+                <div class="search-box">
+                    <input class="search-input" placeholder="搜索...">
+                    <i class="icon-search"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 主内容占位 -->
+    {% block content %}{% endblock %}
+
+    <!-- 底部备案相关信息 -->
+    {% include "./footer.html" %}
+
+    <!-- JS文件引入 -->
+    <script src="/home/dist/static/js/vendor.js"></script>
+    <% for (var chunk in htmlWebpackPlugin.files.js) { %>
+        <script src="<%= htmlWebpackPlugin.files.js[chunk] %>"></script>
+    <% } %>
+    {% block script %}{% endblock %}
+</body>
+
+</html>
