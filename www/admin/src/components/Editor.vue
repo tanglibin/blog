@@ -9,7 +9,7 @@ export default {
     name: 'editor',
     data(){
         return {
-            publicPath: `${location.pathname == '/tlbgl'? '../admin': ''}/static/editor/`,
+            publicPath: `${location.pathname == '/tlbgl'? '../admin/dist': ''}/static/editor/`,
             head: document.getElementsByTagName('head')[0],
             editor: null
         }

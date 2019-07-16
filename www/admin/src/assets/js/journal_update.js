@@ -22,9 +22,8 @@ export default {
                 success: (result) => {
                     this.chapter_title_list = result.detail;
                     this.editData = Object.assign({}, result);
-                    this.formData = {info: Object.assign({}, result.info), detail:{}};
-                    //再次赋值，规避富文本总是填充不到值的问题
-                    this.formData.detail = Object.assign({title: 0}, result.detail[0]);
+                    this.formData = {info: Object.assign({}, result.info), detail: Object.assign({title: 0}, result.detail[0])};
+                    try{document.getElementById('editormd').__vue__.editor.insertValue(this.formData.detail.content);}catch(e){}
                 },
                 error: ()=> {
                     this.$router.go(-1);
