@@ -50,6 +50,12 @@ module.exports={
                     }
                 ]
             },
+            {
+                test: /\.js$/,
+                use: "babel-loader",
+                //过滤掉node_modules
+                exclude: /node_modules/
+            }
         ]
     },
     //插件，用于生产模版和各项功能
@@ -87,13 +93,13 @@ module.exports={
     optimization: {
         minimizer: [
             new OptimizeCss({}),
-            // new UglifyJsPlugin({
-            //     uglifyOptions: {
-            //         ecma: 6,
-            //         cache: true,
-            //         parallel: true
-            //     }
-            // })
+            new UglifyJsPlugin({
+                uglifyOptions: {
+                    ecma: 6,
+                    cache: true,
+                    parallel: true
+                }
+            })
         ]
     },
     //配置webpack开发服务功能

@@ -74,7 +74,7 @@ module.exports = class extends Base {
 
         let selfData = await model.where({sid: sid}).cache(sid).find();
         if(selfData){
-            this.assign('page_op', { title: selfData.name + ' - 我的相册', idx: 3 });
+            this.assign('page_op', { title: selfData.name + ' - 我的相册', idx: 4 });
             if(selfData.photos){
                 selfData.photos = selfData.photos.split(',');
                 this.assign('data', selfData);

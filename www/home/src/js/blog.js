@@ -1,10 +1,11 @@
-import less from '../css/blog.less'
+import less from '../css/blog.less';
 
-let Pathname = location.pathname.match(/^\/([a-z0-9]+)*(\.html)?$/),
-      Doc = document,
+let Pathname = location.pathname.match(/^\/([a-z0-9]+)*(\.html)?$/);
+Pathname = Pathname ? (Pathname[1] || 'index') : 'error';
+
+const Doc = document,
       Win = window,
       JQ = $;
-Pathname = Pathname ? (Pathname[1] || 'index') : 'error';
 
 /**控制台输出网站信息 */
 function myConsole(){
@@ -33,7 +34,7 @@ function initLazyImg(){
     JQ('.lazy-img').lazyload({
         effect: 'fadeIn',
         effectspeed: 200,
-        failure_limit: 1,
+        failure_limit: 2,
         threshold: 20
     });
 }

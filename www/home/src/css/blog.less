@@ -95,7 +95,10 @@ img{display: block;}
 .widget-box{
     &{margin-left: 866px;}
     &>article{background: #fff;padding: 0 20px 20px;margin-top: 10px;width: 354px;box-sizing: border-box;}
-    .title-block{font-size: 16px;line-height: 45px;border-bottom: 1px solid #90bba8;margin-bottom: 10px;}
+    .title-block{
+        &{font-size: 16px;line-height: 45px;}
+        &:before{content: '';border-left: 4px solid #0da2e4;height: 17px;float: left;margin: 14px 6px 0 0;}
+    }
 }
 .right-btn{color: #999;font-size: 12px;line-height: 16px;float: right;}
 .icon-timer, .icon-down, .icon-tag{float: left;.size(16px);margin-right: 6px;}
@@ -129,7 +132,7 @@ img{display: block;}
     .icon-avatar {display: block;.size(47px, 83px);margin: 0 auto;}
     .names {font-size: 16px;padding: 10px 0 4px;}
     ul {.size(280px, 50px);margin: 20px auto 25px;padding-left: 20px;}
-    li {.size(50px);float: left;margin: 0 10px;}
+    li {.size(50px);float: left;margin: 0 10px;border-radius: 3px;}
     .op-email {background: #eca3ac;}
     .op-qq {background: #f78585;}
     .op-wechat {
@@ -186,7 +189,7 @@ img{display: block;}
 
 // 小组件-章节目录
 .widget-catalog{
-    ul{list-style-type: disc;line-height: 22px;margin-left: 18px;}
+    ul{line-height: 22px;margin-left: 2px;}
     a{color: #1e90ff;}
 }
 
@@ -257,11 +260,11 @@ img{display: block;}
     .txt-block {line-height: 34px;color: #666;padding: 0 8px;}
     .date {color: #999;width: 78px;float: right;}
     .address, .date {overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
-    .address {font-size: 16px;max-width: 180px;}
+    .address {max-width: 180px;}
 }
 .album-detail-ctx{
     &{width: 1000px;}
-    .title{margin: 20px 0 5px;}
+    .title{margin: 20px 0 10px;}
     h2{margin: 0 5px 0 0;font-weight: normal;display: inline;font-size: 36px;}
     img{width: 100%;margin: 0 auto 30px;min-height: 400px;}
     img[src]{min-height: 0;}

@@ -80,7 +80,7 @@ module.exports = class extends think.Controller {
 
     /**获取猜你喜欢及标签云 */
     async getPushAndTag(){
-        let push = await this.model('journal_info').where({status: 1, push: 1}).cache('journal-push').select(),
+        let push = await this.model('journal_info').where({status: 1, push: 1}).cache('journal-push').order('issue_time desc').select(),
             tag = await this.model('tag').where('count>=1').cache('tag').select();
         this.assign('pushList', push);
         this.assign('tagList', tag);
