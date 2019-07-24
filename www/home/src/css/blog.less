@@ -65,7 +65,7 @@ img{display: block;}
     .search-box {position: relative;}
     .search-input{
         &, &::placeholder{color: #fefefe;}
-        &{border: 1px solid #eee;border-radius: 11px;background: transparent;width: 54px;height: 20px;padding: 0 32px 0 12px;font-size: 14px;line-height: 20px;outline: none;transition: all .2s;}
+        &{border: 1px solid #717171;border-radius: 11px;background: transparent;.size(54px, 22px, 1);padding: 0 32px 0 12px;font-size: 14px;outline: none;transition: all .2s;}
         &:focus{width:200px;}
     }
     .icon-search {background-position: -116px -67px;width: 16px;height: 16px;position: absolute;top: 18px;right: 10px;}
@@ -244,10 +244,11 @@ img{display: block;}
 .tool-box {
     &{background: #fff;padding: 20px 20px 10px;width: 816px;}
     ul{overflow: hidden;width: 832px;}
-    li {float: left;border: 1px solid #eee;padding: 8px;margin: 0 16px 20px 0;width: 382px;font-size: 12px;line-height: 18px;}
-    img {float: left;.size(100px);margin-right: 10px;}
-    .title {color: #106714;font-size: 14px;line-height: 30px;padding-top: 5px;}
+    li {float: left;border: 1px solid #eee;padding: 12px 14px;margin: 0 16px 20px 0;.size(370px, 100px);font-size: 12px;line-height: 18px;}
+    img {float: left;.size(100px);margin-right: 12px;}
+    .title {color: #106714;font-size: 14px;line-height: 30px;padding-top: 7px;}
     .icon-down {background-position: -85px -68px;}
+    .right-btn{margin-top: -6px;}
 }
 // 工具下载页面-结束
 
@@ -266,7 +267,7 @@ img{display: block;}
     &{width: 1000px;}
     .title{margin: 20px 0 10px;}
     h2{margin: 0 5px 0 0;font-weight: normal;display: inline;font-size: 36px;}
-    img{width: 100%;margin: 0 auto 30px;min-height: 400px;}
+    img{width: 100%;margin: 0 auto 15px;min-height: 400px;}
     img[src]{min-height: 0;}
 }
 // 相册页面-结束
@@ -311,6 +312,7 @@ img{display: block;}
 
 .detail-content{
     &{padding: 15px 20px 30px;background: #fff;}
+    &>:first-child{margin-top: 0;}
     h2, h4, h5, h6{margin: 16px 0 6px;}
     blockquote, dl, ol, p, pre, table, ul, h6{ margin-bottom: 16px;}
     h2 {font-size: 18px;margin-top: 30px;}
