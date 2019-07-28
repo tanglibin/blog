@@ -20,6 +20,10 @@ module.exports = class extends Base {
     
     /**首页*/
     async indexAction() {
+        let model_banner = this.model('banner');
+        let bannerList = await model_banner.cache('banner').select();
+        this.assign('bannerList', bannerList);
+
         let data = await this.getJournalList();
         this.assign('scrollData', data);
         await this.getWidget();

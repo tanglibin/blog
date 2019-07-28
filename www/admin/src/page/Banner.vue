@@ -7,7 +7,7 @@
         <el-table :data="list" @selection-change="selChange" border style="width: 100%">
             <el-table-column type="selection" width="55"></el-table-column>
             <el-table-column prop="title" label="标题" min-width="100"></el-table-column>
-            <el-table-column prop="url" label="图片地址" min-width="80"></el-table-column>
+            <el-table-column prop="pic" label="图片地址" min-width="80"></el-table-column>
             <el-table-column prop="sid" label="跳转sid" min-width="90"></el-table-column>
             <el-table-column prop="last_update_time" label="最后更新时间" width="180"></el-table-column>
             <el-table-column prop="create_time" label="创建时间" width="180"></el-table-column>
@@ -26,7 +26,7 @@
                     <el-input v-model="formData.title" placeholder="请输入标题"></el-input>
                 </el-form-item>
                 <el-form-item label="图片地址">
-                    <el-input v-model="formData.url" placeholder="请输入图片地址"></el-input>
+                    <el-input v-model="formData.pic" placeholder="请输入图片地址"></el-input>
                 </el-form-item>
                 <el-form-item label="跳转sid">
                     <el-input v-model="formData.sid" placeholder="请输入跳转sid"></el-input>

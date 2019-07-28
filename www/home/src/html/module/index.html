@@ -10,20 +10,16 @@
             <div class="banner" id="banner">
                 <div class="ws_thumbs">
                     <div>
-                        <a target="_blank" href="#" title="Python3网络爬虫开发实战教程"><img src="${require('../../img/zs1.jpg')}" /></a>
-                        <a target="_blank" href="#" title="Python3爬虫视频学习教程"><img src="${require('../../img/zs2.jpg')}" /></a>
-                        <a target="_blank" href="#" title="干货！IT小伙伴们实用的网站及工具大集合！持续更新！"><img src="${require('../../img/zs3.jpg')}" /></a>
-                        <a target="_blank" href="#" title="PHP高级特性学习总结"><img src="${require('../../img/zs4.jpg')}" /></a>
-                        <a target="_blank" href="#" title="Python2爬虫学习系列教程"><img src="${require('../../img/zs5.jpg')}" /></a>
+                        {% for item in bannerList %}
+                            <a href="/{{item.sid}}.html" title="{{item.title}}"><img src="https://qiniu.tlbin.com/image/banner/{{item.pic}}" /></a>
+                        {% endfor %}
                     </div>
                 </div>
                 <div class="ws_images">
                     <ul>
-                        <li><a target="_blank" href="/"><img src="${require('../../img/zs1.jpg')}" title="Python3网络爬虫开发实战教程"/></a></li>
-                        <li><a target="_blank" href="/"><img src="${require('../../img/zs2.jpg')}" title="Python3爬虫视频学习教程"/></a></li>
-                        <li><a target="_blank" href="/"><img src="${require('../../img/zs3.jpg')}" title="干货！IT小伙伴们实用的网站及工具大集合！持续更新！"/></a></li>
-                        <li><a target="_blank" href="/"><img src="${require('../../img/zs4.jpg')}" title="PHP高级特性学习总结"/></a></li>
-                        <li><a target="_blank" href="/"><img src="${require('../../img/zs5.jpg')}" title="Python2爬虫学习系列教程"/></a></li>
+                        {% for item in bannerList %}
+                            <li><a href="/{{item.sid}}.html"><img src="https://qiniu.tlbin.com/image/banner/{{item.pic}}" title="{{item.title}}"/></a></li>
+                        {% endfor %}
                     </ul>
                 </div>
             </div>
