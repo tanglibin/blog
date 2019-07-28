@@ -34,7 +34,7 @@ function initLazyImg(){
     JQ('.lazy-img').lazyload({
         effect: 'fadeIn',
         effectspeed: 200,
-        failure_limit: 2,
+        failure_limit: 1,
         threshold: 20
     });
 }

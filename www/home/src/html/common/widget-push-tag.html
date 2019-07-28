@@ -5,7 +5,7 @@
         {% for item in pushList %}
             <li>
                 <a href="/{{item.sid}}.html" target="_blank">
-                    <img class="lazy-img" data-original="{{item.cover_url}}" />
+                    <img src="{{item.cover_url}}" />
                     <p class="title">{{item.title}}</p>
                     <p class="date">{{item.issue_time.substr(0, 10)}}</p>
                 </a>
