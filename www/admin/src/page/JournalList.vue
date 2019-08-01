@@ -7,18 +7,17 @@
         <el-table :data="list" @selection-change="selChange" border style="width: 100%">
             <el-table-column type="index" :index="getIndex" width="50" label=" " align="center"></el-table-column>
             <el-table-column type="selection" width="40" align="center"></el-table-column>
-            <el-table-column prop="sid" label="跳转sid" min-width="100"></el-table-column>
-            <el-table-column prop="title" label="标题" min-width="160" :show-overflow-tooltip="true"></el-table-column>
-            <el-table-column prop="summary" label="概要" min-width="160" :show-overflow-tooltip="true"></el-table-column>
+            <el-table-column prop="sid" label="跳转sid" width="130"></el-table-column>
+            <el-table-column prop="title" label="标题" min-width="300" :show-overflow-tooltip="true"></el-table-column>
             <el-table-column prop="keyword" label="关键字" min-width="160"></el-table-column>
-            <el-table-column prop="tag" label="标签" min-width="80"></el-table-column>
-            <el-table-column prop="push" label="是否推送" min-width="80">
+            <el-table-column prop="tag" label="标签" width="120"></el-table-column>
+            <el-table-column prop="push" label="是否推送" width="80">
                 <template slot-scope="scope">
                     <span v-if="scope.row.push == 0" class="danger">否</span>
                     <span v-else class="success">是</span>
                 </template>
             </el-table-column>
-            <el-table-column prop="status" label="状态" width="80">
+            <el-table-column prop="status" label="状态" width="70">
                 <template slot-scope="scope">
                     <span v-if="scope.row.status == 0" class="danger">待发布</span>
                     <span v-else class="success">已发布</span>
@@ -27,16 +26,16 @@
             <el-table-column prop="issue_time" label="发布时间" width="160"></el-table-column>
             <el-table-column prop="last_update_time" label="最后更新时间" width="160"></el-table-column>
 
-            <el-table-column label="操作" width="220">
+            <el-table-column label="操作" width="260">
                 <template slot-scope="scope">
                     <template v-if="scope.row.status == 0">
                         <el-button type="text" size="small" icon="el-icon-upload2" @click="issueToggle(scope.row)">发布</el-button>
-                        <el-button type="text" size="small" icon="el-icon-edit" @click="update(scope.row)">编辑</el-button>
                     </template>
                     <template v-else>
                         <el-button type="text" size="small" icon="el-icon-download" @click="issueToggle(scope.row)">下线</el-button>
                         <el-button type="text" size="small" :icon="'el-icon-'+( scope.row.push == 0 ? 'upload2' : 'download' )" @click="fnPush(scope.row)">{{scope.row.push == 0 ? '推送' : '取消推送'}}</el-button>
                     </template>
+                    <el-button type="text" size="small" icon="el-icon-edit" @click="update(scope.row)">编辑</el-button>
                     <el-button type="text" size="small" icon="el-icon-delete" @click="del(scope.row)">删除</el-button>
                 </template>
             </el-table-column>

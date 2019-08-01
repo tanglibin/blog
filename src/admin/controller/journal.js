@@ -56,7 +56,7 @@ module.exports = class extends Base {
     async findAction(){
         let id = this.ctx.param('id');
         let model_info = this.model('journal_info');
-        let info = await model_info.where({id: id, status: 0}).find();
+        let info = await model_info.where({id: id}).find();
         if(think.isEmpty(info)){
             return this._fail('非法请求！');
         }
