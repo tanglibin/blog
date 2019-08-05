@@ -14,7 +14,7 @@ module.exports = class extends Base {
             join: 'left',
             as: 'a',
             on: ['f.aid', 'a.id']
-          }).field('f.*, a.name, a.filming_time').order('f.create_time desc').page(data.currentPage, data.pagesize).countSelect();
+          }).field('f.*, a.name as "album_name", a.filming_time').order('f.create_time desc').page(data.currentPage, data.pagesize).countSelect();
         return this.success(list);
     }
 

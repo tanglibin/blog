@@ -6,8 +6,16 @@
         <!-- 正文内容表格 -->
         <el-table :data="list" @selection-change="selChange" border style="width: 100%">
             <el-table-column type="selection" width="55"></el-table-column>
-            <el-table-column prop="name" label="地点" min-width="100"></el-table-column>
-            <el-table-column prop="filming_time" label="时间" min-width="80"></el-table-column>
+            <el-table-column label="地点" min-width="100">
+                <template slot-scope="scope">
+                    <span v-text="scope.row.album_name || scope.row.name"></span>
+                </template>
+            </el-table-column>
+            <el-table-column prop="filming_time" label="打卡时间" min-width="80">
+                <template slot-scope="scope">
+                    <span v-text="scope.row.filming_time || scope.row.record_date"></span>
+                </template>
+            </el-table-column>
             <el-table-column prop="longitude" label="经度" min-width="90"></el-table-column>
             <el-table-column prop="latitude" label="纬度" min-width="50"></el-table-column>
             <el-table-column prop="last_update_time" label="最后更新时间" width="180"></el-table-column>
@@ -29,6 +37,14 @@
                         <el-option v-for="(item, i) in albumList" :key="i" :label="item.name" :value="i"></el-option>
                     </el-select>
                 </el-form-item>
+                <template v-if="formData.id ? !formData.aid : albumDataIndex===''">
+                    <el-form-item label="名称">
+                        <el-input v-model="formData.name" placeholder="请输入城市名称"></el-input>
+                    </el-form-item>
+                    <el-form-item label="时间">
+                        <el-date-picker v-model="formData.record_date" type="date" placeholder="选择记录日期" value-format="yyyy-MM-dd"></el-date-picker>
+                    </el-form-item>
+                </template>
                 <el-form-item label="经度">
                     <el-input v-model="formData.longitude" placeholder="请输入经度"></el-input>
                 </el-form-item>
@@ -68,6 +84,12 @@ export default {
     watch: {
         isShowDialog(nv){
             nv && !this.requestAlbumed && this.getAlbum();
+            if(!nv){
+                setTimeout(()=>{
+                    this.albumDataIndex = '';
+                    this.formData = {};
+                }, 800)
+            }
         }
     },
     mixins: [myMinix],

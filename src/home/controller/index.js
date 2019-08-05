@@ -103,7 +103,7 @@ module.exports = class extends Base {
             join: 'left',
             as: 'a',
             on: ['f.aid', 'a.id']
-        }).field(`a.sid as 'link', CONCAT('[',longitude,',', latitude, ']') AS 'coordinates', a.name as 'title', a.cover as 'img'`).cache('footprint').select();
+        }).field(`a.sid as 'link', CONCAT('[',longitude,',', latitude, ']') AS 'coordinates', a.name as 'title', f.name as 'title2', f.record_date, a.cover as 'img'`).cache('footprint').select();
         this.assign('data', {
             count: list.length,
             list: JSON.stringify(list)

@@ -72,7 +72,7 @@ const Common = {
         if (op.data) {
             var params = new URLSearchParams();
             for (let key in op.data) {
-                params.append(key, op.data[key]);
+                op.data[key]!== null && params.append(key, op.data[key]);
             }
             if (axiosParam.method == 'get') {
                 axiosParam.params = params;

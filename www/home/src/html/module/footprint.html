@@ -19,17 +19,17 @@
 ;(function(){
     mapboxgl.accessToken = 'pk.eyJ1IjoidGxiaW4iLCJhIjoiY2p3dnBjeXB5MDNvYzQ5cGR1aHo3NjJ6bCJ9.6sM04lknQ_UAGOww8veJ7g';
     let M = new mapboxgl.Map({
-        container: "map",
-        style: "mapbox://styles/mapbox/light-v9",
+        container: 'map',
+        style: 'mapbox://styles/mapbox/light-v9',
         center: [108.14, 33.87],
         cluster: !0,
         minZoom: 1,
         maxZoom: 8,
-        zoom: 2.2
+        zoom: 2.5
     });
     mapboxgl.setRTLTextPlugin('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.1.0/mapbox-gl-rtl-text.js');
     M.addControl(new MapboxLanguage({
-        defaultLanguage: "zh"
+        defaultLanguage: 'zh'
     }));
     M.addControl(new mapboxgl.NavigationControl({
         showCompass: !1
@@ -38,9 +38,14 @@
     
     let list = JSON.parse('{{data.list}}'.replace(/&quot;/g, '"'));
     list.forEach(item=>{
-        let marker = document.createElement("div");
-        marker.className = "marker";
-        let popStr = "<a target='_blank' href='/" +item.link+ ".html'><h6>" +item.title+ "</h6><img src='https://qiniu.tlbin.com/image/" +item.img+ "'></a>";
+        let marker = document.createElement('div'), popStr;
+        if(item.link){
+            marker.className = 'marker';
+            popStr = '<a target="_blank" href="/' +item.link+ '.html"><h6>' +item.title+ '</h6><img src="https://qiniu.tlbin.com/image/' +item.img+ '"></a>';
+        }else{
+            marker.className = 'marker nolink';
+            popStr = '<h6>' +item.title2+ '</h6><p>'+ item.record_date +'</p>';
+        }
         new mapboxgl.Marker(marker).setLngLat(JSON.parse(item.coordinates)).setPopup(new mapboxgl.Popup({
             offset: 25
         }).setHTML(popStr)).addTo(M)
