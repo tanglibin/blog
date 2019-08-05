@@ -5,10 +5,9 @@
 {% block content %}
     <div class="container footorint-ctx">
         <div class="inner">
-            <p class="title">足迹地图</p>
-            <div id='map'></div>
             <p class="count">共<span class="ft-count">{{data.count}}</span>条记录</p>
             <p class="ts">点击红色浮标即可查看相应照片</p>
+            <div id='map'></div>
         </div>
     </div>
 {% endblock %}
@@ -25,7 +24,7 @@
         cluster: !0,
         minZoom: 1,
         maxZoom: 8,
-        zoom: 2.5
+        zoom: 3
     });
     mapboxgl.setRTLTextPlugin('https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-rtl-text/v0.1.0/mapbox-gl-rtl-text.js');
     M.addControl(new MapboxLanguage({
