@@ -241,8 +241,8 @@ $(function(){
         //初始化轮播
         initSlider();
 
-        // 首页及学习笔记页面，初始化滚动加载
-        if(/index|journal|search/.test(Pathname)){
+        // 学习笔记页面，初始化滚动加载
+        if(/journal|search/.test(Pathname)){
             initScrollLoad();
         }
         // 日志详情页面，若是多章节，滚动时固定章节目录

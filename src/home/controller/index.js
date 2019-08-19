@@ -24,8 +24,8 @@ module.exports = class extends Base {
         let bannerList = await model_banner.cache('banner').select();
         this.assign('bannerList', bannerList);
 
-        let data = await this.getJournalList();
-        this.assign('scrollData', data);
+        let data = await this.getJournalList(1, {}, 5);
+        this.assign('journalData', data);
         await this.getWidget();
         return this.displayView('index');
     }

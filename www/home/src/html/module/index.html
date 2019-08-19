@@ -25,7 +25,8 @@
             </div>
 
             <div class="post-box" id="post_box">
-                {% for item in scrollData.data %}
+                <div class="title-block">最新文章</div>
+                {% for item in journalData.data %}
                     <article class="excerpt">
                         <div class="item-title">
                             <a href='/{{item.sid}}.html'>
@@ -45,8 +46,6 @@
                 {% endfor %}
             </div>
 
-            <!-- 底部loading -->
-            {% include "./loading.html" %}
         </div>
         <!-- 小部件 -->
         <div class="widget-box">

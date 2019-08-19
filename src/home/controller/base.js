@@ -51,14 +51,14 @@ module.exports = class extends think.Controller {
     }
 
     /**获取日志数据 */
-    async getJournalList(page=1, where={}){
+    async getJournalList(page=1, where={}, pageSize=10){
         let model = this.model('journal_info');
         let data = await model.alias('j').join({
             table: 'tag',
             join: 'left',
             as: 't',
             on: ['j.tag_id', 't.id']
-        }).field('j.*, t.name as "tag"').where(Object.assign({'j.status': 1}, where)).order('issue_time desc').page(page, 10).countSelect();
+        }).field('j.*, t.name as "tag"').where(Object.assign({'j.status': 1}, where)).order('issue_time desc').page(page, pageSize).countSelect();
         return data;
     }
 

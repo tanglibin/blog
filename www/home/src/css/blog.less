@@ -45,6 +45,12 @@ img{display: block;}
     @keyframes opaque {0%, 40%, 100% {opacity: 0.1;}40% {opacity: 1;}}
 }
 
+// 标题
+.title-block{
+    &{font-size: 16px;line-height: 45px;}
+    &:before{content: '';border-left: 4px solid #0da2e4;height: 17px;float: left;margin: 14px 6px 0 0;}
+}
+
 // 头部
 .header{
     .title {background: #d56464;text-align: center;}
@@ -95,10 +101,6 @@ img{display: block;}
 .widget-box{
     &{margin-left: 866px;}
     &>article{background: #fff;padding: 0 20px 20px;margin-top: 10px;width: 354px;box-sizing: border-box;}
-    .title-block{
-        &{font-size: 16px;line-height: 45px;}
-        &:before{content: '';border-left: 4px solid #0da2e4;height: 17px;float: left;margin: 14px 6px 0 0;}
-    }
 }
 .right-btn{color: #999;font-size: 12px;line-height: 16px;float: right;}
 .icon-timer, .icon-down, .icon-tag{float: left;.size(16px);margin-right: 6px;}
@@ -107,6 +109,7 @@ img{display: block;}
 // 首页日志摘要，笔记页面，搜索页面
 .post-box{
     &{clear: both;}
+    .title-block{background: #fff;border-bottom: 1px solid #efefef;padding-left: 20px;}
     &.no-data{text-align: center;font-size: 20px;background: #fff;height: 800px;padding-top: 50px;}
     .excerpt{
         &{margin-bottom: 10px;padding: 18px 15px 20px 20px;background: #fff;height: 166px;}
