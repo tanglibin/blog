@@ -1,18 +1,23 @@
 {% extends './template.html' %}
 {% block content %}
     <div class="container album-ctx">
-        <ul>
-            {% for item in albums %}
-            <li>
-                <a href="/{{item.sid}}.html" target="_blank">
-                    <img class="lazy-img" data-original="https://qiniu.tlbin.com/image/{{item.cover}}">
-                    <p class="txt-block">
-                        <span class="address">{{item.name}}</span>
-                        <span class="date">{{item.filming_time}}</span>
-                    </p>
-                </a>
-            </li>
-            {% endfor %}
-        </ul>
+        {% for year, data in albums %}
+            <div class="album-box">
+                <p class="year">{{year}}</p>
+                <div class="album-block">
+                    <ul class="items">
+                        {% for item in data %}
+                        <li>
+                            <a href="/{{item.sid}}.html" target="_blank">
+                                <div class="img-box"><img class="lazy-img" data-original="https://qiniu.tlbin.com/image/{{item.cover}}"></div>
+                                <div class="txt-block">{{item.name}}<span class="date">({{item.filming_time}})</span></div>
+                            </a>
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        {% endfor %}
+        
     </div>
 {% endblock %}

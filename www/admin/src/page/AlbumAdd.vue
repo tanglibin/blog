@@ -58,6 +58,9 @@
                 <el-form-item label="封面">
                     <el-input v-model="parForm.cover" placeholder="请输入封面地址"></el-input>
                 </el-form-item>
+                <el-form-item label="踏足时间">
+                    <el-date-picker v-model="parForm.filming_time" type="date" placeholder="选择日期" value-format="yyyy-MM-dd"></el-date-picker>
+                </el-form-item>
             </el-form>
             <el-row type="flex" justify="end">
                 <el-button type="primary" size="medium" @click="submit(parForm, 1)">提 交</el-button>

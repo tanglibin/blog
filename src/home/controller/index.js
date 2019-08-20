@@ -66,7 +66,14 @@ module.exports = class extends Base {
     /**相册*/
     async albumAction() {
         let model = this.model('album');
-        let data = await model.where({pid: null}).order('create_time desc').cache('album').select();
+        let list = await model.where({pid: null}).order('create_time desc').cache('album').select();
+        let data = {};
+        list.forEach(item => {
+            let date = item.filming_time.match(/^(\d{4})-([0-9-]+)/), key = date[1] + '年';
+            item.filming_time = date[2];
+            data[key] = data[key] || [];
+            data[key].push(item);
+        })
         this.assign('albums', data);
         return this.displayView('album');
     }
@@ -87,7 +94,9 @@ module.exports = class extends Base {
                 // 查询子相册
                 let list = await model.field(`sid, CONCAT(prefix, cover) as 'cover', name, filming_time`).where({pid: selfData.id}).cache('child_' + sid).order('filming_time desc').select();
                 if(list.length){
-                    this.assign('albums', list);
+                    let data = {};
+                    data[selfData.name] = list;
+                    this.assign('albums', data);
                     return this.displayView('album');
                 }
             }

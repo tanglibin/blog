@@ -257,15 +257,21 @@ img{display: block;}
 
 // 相册页面-开始
 .album-ctx{
-    ul {width: 1240px;padding-top: 10px;}
-    li {.size(290px, 212px);float: left;background: #fff;margin: 0 20px 30px 0;}
-    .img-block{overflow: hidden;}
-    img {.size(100%, 178px);}
-    .txt-block {line-height: 34px;color: #666;padding: 0 8px;}
-    .date {color: #999;width: 78px;float: right;}
-    .address, .date {overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
-    .address {max-width: 180px;}
+    &{padding-top: 20px;}
+    .album-box{background: #fff;padding: 20px 20px 0;margin-bottom: 20px;}
+    .year{border-bottom: 2px solid #1487f4;color: #1487f4;font-size: 16px;display: inline-block;padding: 0 10px 9px;}
+    .album-block{border-top: 1px solid #e4e3e3;}
+    .items{overflow: hidden;padding: 30px 10px 0;width: 1180px;}
+    li{
+        &{.size(275px, 212px);float: left;background: #fff;margin: 0 20px 15px 0;}
+        &:hover img{transform: scale(1.2);}
+    }
+    .img-box{overflow: hidden;}
+    img {object-fit: cover;.size(100%, 178px);transition: transform .5s;}
+    .txt-block {line-height: 34px;color: #666;}
+    .date{margin-left: 5px;color: #999;}
 }
+
 .album-detail-ctx{
     &{width: 1000px;}
     .title{margin: 20px 0 10px;}
