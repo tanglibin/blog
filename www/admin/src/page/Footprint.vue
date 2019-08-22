@@ -16,8 +16,8 @@
                     <span v-text="scope.row.filming_time || scope.row.record_date"></span>
                 </template>
             </el-table-column>
-            <el-table-column prop="longitude" label="经度" min-width="90"></el-table-column>
-            <el-table-column prop="latitude" label="纬度" min-width="50"></el-table-column>
+            <el-table-column prop="lng" label="经度" min-width="90"></el-table-column>
+            <el-table-column prop="lat" label="纬度" min-width="50"></el-table-column>
             <el-table-column prop="last_update_time" label="最后更新时间" width="180"></el-table-column>
             <el-table-column prop="create_time" label="创建时间" width="180"></el-table-column>
             <el-table-column label="操作" width="140">
@@ -46,10 +46,10 @@
                     </el-form-item>
                 </template>
                 <el-form-item label="经度">
-                    <el-input v-model="formData.longitude" placeholder="请输入经度"></el-input>
+                    <el-input v-model="formData.lng" placeholder="请输入经度"></el-input>
                 </el-form-item>
                 <el-form-item label="纬度">
-                    <el-input v-model="formData.latitude" placeholder="请输入纬度"></el-input>
+                    <el-input v-model="formData.lat" placeholder="请输入纬度"></el-input>
                 </el-form-item>
             </el-form>
             <el-row type="flex" justify="end">

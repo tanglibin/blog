@@ -11,6 +11,11 @@ module.exports = class extends Base {
         return this.displayView('browser');
     }
 
+    /**足迹*/
+    async footprintAction() {
+        return this.displayView('footprint');
+    }
+
     /**404页面*/
     async errorAction() {
         await this.getWidget();
@@ -104,20 +109,16 @@ module.exports = class extends Base {
         return this.displayView('error');
     }
 
-    /**足迹*/
-    async footprintAction() {
+    /**获取足迹数据*/
+    async getjsonAction() {
         let model = this.model('footprint');
         let list = await model.alias('f').join({
             table: 'album',
             join: 'left',
             as: 'a',
             on: ['f.aid', 'a.id']
-        }).field(`a.sid as 'link', CONCAT('[',longitude,',', latitude, ']') AS 'coordinates', a.name as 'title', f.name as 'title2', f.record_date, a.cover as 'img'`).cache('footprint').select();
-        this.assign('data', {
-            count: list.length,
-            list: JSON.stringify(list)
-        });
-        return this.displayView('footprint');
+        }).field(`a.sid as 'link', f.lng, f.lat, ifnull(f.name, a.name) as name, a.cover as 'img'`).cache('footprint').select();
+        return this.success(list);
     }
 
     /**搜索页面 */

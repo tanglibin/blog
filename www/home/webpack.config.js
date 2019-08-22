@@ -85,8 +85,8 @@ module.exports={
         }),
         new CopyWebpackPlugin([
             {
-                from: Path.resolve(__dirname, './static/vendor.js'),
-                to: 'static/js'
+                from: Path.resolve(__dirname, './static'),
+                to: 'static/'
             }
         ])
     ],
